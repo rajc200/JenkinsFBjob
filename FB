@@ -15,13 +15,13 @@ pipeline {
 	stage("\u2777 build") {
 			steps {
 			echo "********** Triggering Build Job *******************"
-            build job: 'omni_orig', parameters: [[ $class: 'StringParameterValue', name: 'UGLIFY_JS', value: "${UGLIFY_JS}" ] , [ $class: 'StringParameterValue', name: 'ENV' ,value: "${ENV}" ], [ $class: 'StringParameterValue', name: 'BRANCH' ,value: "${BRANCH}" ]]
+            build job: 'Webuicopy_Multibranch', parameters: [[ $class: 'StringParameterValue', name: 'UGLIFY_JS', value: "${UGLIFY_JS}" ] , [ $class: 'StringParameterValue', name: 'ENV' ,value: "${ENV}" ], [ $class: 'StringParameterValue', name: 'BRANCH' ,value: "${BRANCH}" ]]
     		}
 	}
 	stage("\u2777 Deploy") {
 			steps {
 			echo "********** Triggering Deploy Job *******************"
-            build job: 'omni_deploy', parameters: [[ $class: 'StringParameterValue', name: 'BRANCH', value: "${BRANCH}" ]]
+            build job: 'webuideploy_multibranch', parameters: [[ $class: 'StringParameterValue', name: 'BRANCH', value: "${BRANCH}" ]]
     		}
 	}
 
