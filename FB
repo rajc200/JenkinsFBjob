@@ -9,6 +9,9 @@ pipeline {
             name: 'ENV')
 			string(defaultValue: "false", description: 'What environment?', name: 'UGLIFY_JS')
 			string(defaultValue: "master", description: 'What environment?', name: 'BRANCH')
+			string(defaultValue: "development", description: 'What environment?', name: 'CORE_LIBRARY_BRANCH')
+			 	
+
 
     }
   stages {
